@@ -8,5 +8,13 @@ class RacerInfo
   field :yr, as: :birth_year, type: Integer
   field :res, as: :residence, type: Address
 
+  validates_presence_of :first_name
+  validates_presence_of :last_name
+  validates_presence_of :gender
+  validates_presence_of :birth_year
+  validates :gender, :inclusion => {:in=> %w(M F)}
+  validates :birth_year, :numericality => { 
+    :less_than => Date.current.year}
+
   embedded_in :parent, polymorphic: true
 end
