@@ -2,6 +2,8 @@ class LegResult
   include Mongoid::Document
   field :secs, as: :secs, type: Float
 
+  embedded_in :entrant
+
   def secs=(value)
     self[:secs] = value
     calc_ave
