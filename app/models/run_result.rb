@@ -4,8 +4,7 @@ class RunResult < LegResult
   def calc_ave
     if event && secs
       miles = event.miles
-      # For now we'll return a dummy floating point
-      self.minute_mile = miles.nil? ? nil : 21.12
+      self.minute_mile = miles.nil? ? nil : (secs/60)/miles
     end
   end
 end
