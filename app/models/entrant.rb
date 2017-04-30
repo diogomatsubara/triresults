@@ -15,6 +15,7 @@ class Entrant
     after_add: :update_total,
     after_remove: :update_total
   embeds_one :race, class_name: "RaceRef"
+  embeds_one :racer, as: :parent, class_name: "RacerInfo"
 
   def the_race
     race.race
