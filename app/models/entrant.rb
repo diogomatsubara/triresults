@@ -16,6 +16,10 @@ class Entrant
     after_remove: :update_total
   embeds_one :race, class_name: "RaceRef"
 
+  def the_race
+    race.race
+  end
+
   def update_total(result)
     self.secs = results.inject(0) {|sum, result| sum + result.secs}
   end
